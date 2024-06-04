@@ -1,7 +1,7 @@
-langchain==0.0.340
+langchain
 PyPDF2==2.11.1
-python-dotenv==1.0.0
-streamlit==1.28.1
+python-dotenv
+streamlit
 faiss_cpu
 google-generativeai
 langchain_google_genai
