@@ -4,4 +4,5 @@ python-dotenv==1.0.0
 streamlit==1.28.1
 faiss_cpu
 google-generativeai
+langchain_google_genai
 
