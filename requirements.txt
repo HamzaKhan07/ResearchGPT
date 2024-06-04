@@ -5,4 +5,5 @@ streamlit
 faiss_cpu
 google-generativeai
 langchain_google_genai
+langchain-community
 
