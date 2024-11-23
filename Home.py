@@ -12,7 +12,9 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 
 # load api key
-load_dotenv()
+# load_dotenv()
+
+api_key = st.secrets["api_key"]
 
 # page
 st.set_page_config(
@@ -84,7 +86,7 @@ def start():
                 chunks = text_splitter.split_text(text=text)
 
                 # create embeddings
-                embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+                embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=api_key)
 
                 # store embeddings
                 vectordb = FAISS.from_texts(chunks, embedding=embeddings)
@@ -116,7 +118,7 @@ def get_insights(vectordb):
             """
 
         # question answer chain
-        model = GoogleGenerativeAI(model="gemini-pro") #models/text-bison-001
+        model = GoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=api_key) #models/text-bison-001
         prompt = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
         chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
         st.session_state.chain = chain
